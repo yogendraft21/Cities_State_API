@@ -1,7 +1,9 @@
 const express = require("express");
 const fs = require("fs");
 const app = express();
+const cors  = require('cors')
 app.use(express.json());
+app.use(cors())
 
 app.get("/",(req,res)=>{
     res.status(200).json("Free India State and Cities API By Yogi Singh")
@@ -55,7 +57,7 @@ app.get("/yogi/api/india/state/:stateName", (req, res) => {
         res.status(500).send("Error parsing JSON");
       }
     });
-  });
+});
 
 
 app.listen(8000, () => {
